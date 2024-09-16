@@ -25,14 +25,14 @@
   <body>
     <nav>
       <div
-        class="contain px-3 xl:px-0 max-w-[65.625rem] mx-auto hidden md:flex justify-between items-center py-7"
+        class="contain px-3 xl:px-0 max-w-[65.625rem] mx-auto flex justify-between items-center py-7 relative"
       >
         <div class="logo">
-          <a href="/src/index.html">
+          <a class="" href="/src/index.html">
             <img src="../images/logo.png" alt="images/logo.png"
           /></a>
         </div>
-        <div class="menu">
+        <div class="menu hidden sm:block">
           <ul
             class="font-Montserrat font-bold text-sm text-secondary-text flex gap-x-5"
           >
@@ -42,17 +42,52 @@
             <li><a class="hover:text-black" href="#">Contact</a></li>
           </ul>
         </div>
-        <div class="login">
-          <button
-            class="font-Montserrat font-bold hover:bg-primary/20 py-4 px-6 text-primary rounded-lg transition-all duration-300"
+        <div
+          id="small_menu"
+          class="hidden sm:hidden absolute top-16 right-0 text-end bg-primary/25  p-3 rounded-2xl"
+        >
+          <ul
+            class="font-Montserrat font-bold text-sm text-secondary-text flex flex-col gap-y-3"
+          >
+            <li><a class="hover:text-black" href="#">Home</a></li>
+            <li><a class="hover:text-black" href="#">Product</a></li>
+            <li><a class="hover:text-black" href="#">Pricing</a></li>
+            <li><a class="hover:text-black" href="#">Contact</a></li>
+          </ul>
+          <div class="btn mt-4 flex flex-row-reverse gap-4">
+            <a
+              href="#"
+              class="font-Montserrat font-bold hover:bg-primary/20 py-2 md:py-4 px-3 md:px-6 text-primary rounded-lg transition-all duration-300 inline-block border border-primary"
+            >
+              login
+            </a>
+            <a
+              href="#"
+              class="font-Montserrat font-bold text-white py-2 md:py-4 px-3 md:px-6 bg-primary rounded-lg hover:bg-primary/30 hover:!text-primary transition-all duration-300 inline-block"
+            >
+              JOIN US
+            </a>
+          </div>
+        </div>
+        <div class="login hidden sm:block">
+          <a
+            href="#"
+            class="font-Montserrat font-bold hover:bg-primary/20 py-2 md:py-4 px-3 md:px-6 text-primary rounded-lg transition-all duration-300 inline-block"
           >
             login
-          </button>
-          <button
-            class="font-Montserrat font-bold text-white py-4 px-6 bg-primary rounded-lg hover:bg-primary/30 hover:!text-primary transition-all duration-300"
+          </a>
+          <a
+            href="#"
+            class="font-Montserrat font-bold text-white py-2 md:py-4 px-3 md:px-6 bg-primary rounded-lg hover:bg-primary/30 hover:!text-primary transition-all duration-300 inline-block"
           >
             JOIN US
-          </button>
+          </a>
+        </div>
+        <div
+          onclick="toggle('small_menu' , 'hidden' , 'block')"
+          class="text-secondary-text sm:hidden"
+        >
+          <i class="fa-solid fa-sort-down text-3xl"></i>
         </div>
       </div>
     </nav>
@@ -882,7 +917,7 @@
       </div>
     </section>
     <footer>
-      <div class="contain contain max-w-[65.625rem] mx-auto  px-3 xl:px-0">
+      <div class="contain contain max-w-[65.625rem] mx-auto px-3 xl:px-0">
         <div class="list py-3 sm:py-6 md:py-9 lg:py-12">
           <ul
             class="font-Montserrat font-bold text-sm text-secondary-text grid sm:grid-cols-6 sm:grid-rows-1 gap-x-7 gap-y-10"
@@ -915,7 +950,7 @@
               </ul>
             </li>
             <li class="col-span-1">
-                <p class="text-base text-primary-text">Resources</p>
+              <p class="text-base text-primary-text">Resources</p>
               <ul class="flex flex-col gap-y-2.5">
                 <li><a href="#">IOS & Android</a></li>
                 <li><a href="#">Watch a Demo</a></li>
@@ -924,7 +959,7 @@
               </ul>
             </li>
             <li class="col-span-2">
-                <p class="text-base text-primary-text">Get In Touch</p>
+              <p class="text-base text-primary-text">Get In Touch</p>
               <ul class="flex flex-col gap-y-2.5">
                 <li>
                   <a href="#">
@@ -934,7 +969,9 @@
                 </li>
                 <li>
                   <a href="#">
-                    <i class="fa-solid fa-location-dot text-primary text-2xl"></i>
+                    <i
+                      class="fa-solid fa-location-dot text-primary text-2xl"
+                    ></i>
                     4517 Washington Ave. Manchester, Kentucky 39495
                   </a>
                 </li>
@@ -948,8 +985,12 @@
             </li>
           </ul>
         </div>
-        <div class="copyRight flex flex-col sm:flex-row gap-y-3 justify-center sm:justify-between py-6">
-          <p class="font-Montserrat font-bold text-sm text-secondary-text">Made With Love By Figmaland All Right Reserved </p>
+        <div
+          class="copyRight flex flex-col sm:flex-row gap-y-3 justify-center sm:justify-between py-6"
+        >
+          <p class="font-Montserrat font-bold text-sm text-secondary-text">
+            Made With Love By Figmaland All Right Reserved
+          </p>
           <div class="links text-2xl text-primary flex gap-x-5">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-instagram"></i>
@@ -958,5 +999,17 @@
         </div>
       </div>
     </footer>
+    <script>
+      function toggle(id, remove, add) {
+        let element = document.getElementById(id);
+        if (element.classList.contains(remove)) {
+          element.classList.add(add);
+          element.classList.remove(remove);
+        } else {
+          element.classList.remove(add);
+          element.classList.add(remove);
+        }
+      }
+    </script>
   </body>
 </html>
